@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cloudflare.com"></script>
+</head>
+<body>
+    <div id="kotak-resi" style="padding: 20px; border: 1px dashed #000; width: 320px; background-color: white; margin-bottom: 10px;">
+        <h2 style="text-align: center;">STRUK TRANSFER <%- tfMethod %></h2>
+        <p>===================================</p>
+        <p>Nama Pengirim: <b><%- yourAccountName %></b></p>
+        <p>Rekening Pengirim: <b><%- yourAccountNumber %></b></p>
+        <p>Metode Transfer: <b><%- tfMethod %></b></p>
+        <p>Ke Bank: <b><%- bankName %></b></p>
+        <p>Nama Penerima: <b><%- accountName %></b></p>
+        <p>Rekeing Tujuan: <b><%- accountNumber %></b></p>
+        <p>===================================</p>
+        <p>Jumlah Transfer: <b><%- transferAmount %></b></p>
+        <p>Biaya admin: <b><%- transferFee %></b></p>
+        <p>Total: <b><%- total %></b></p>
+    </div>
+    <button><a href="/">Back</a></button>
+    <button id="btn-download">Unduh Resi</button>
+    
+    <script>
+        const tombol = document.getElementById('btn-download');
+        const nodeResi = document.getElementById('kotak-resi');
+
+        tombol.addEventListener('click', function() {
+            htmlToImage.toSvg(nodeResi)
+                .then(function (dataUrl) {
+                    const linkDownload = document.createElement('a');
+                    linkDownload.download = 'resi-transfer.svg'; 
+                    linkDownload.href = dataUrl;
+                    linkDownload.click(); 
+                })
+                .catch(function (error) {
+                    console.error('Waduh, ada yang salah saat cetak gambar!', error);
+                });
+        });
+    </script>
+</body>
+</html>

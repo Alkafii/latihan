@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome to Dashboard</h1>
+    <h2><%- name %> - <%- accountNo %></h2>
+    <h2 style="color: green;">Your Balance: Rp<%- totalDeposit %></h2>
+    <div style="display: flex; gap: 15px;">
+        <div class="deposit" style="border: 1px solid black; width: 250px; margin-bottom: 20px; padding: 5px;">
+            <h3 style="color: blue;">Jumlah Transfer</h3>
+            <h4>Transaksi: <%- dashboardDepo %>x</h4>
+            <h4>Nominal Depo: Rp<%- dashboardAmount %></h4>
+            <button><a href="/deposit">Deposit</a></button>
+        </div>
+        <div class="withdraw" style="border: 1px solid black; width: 250px; margin-bottom: 20px; padding: 5px;">
+            <h3 style="color: orange;">Jumlah Withdraw</h3>
+            <h4>Transaksi: <%- dashboardWith %>x</h4>
+            <h4>Nominal Withdraw: Rp<%- dashboardWithAmount %></h4>
+            <button><a href="/withdraw">Withdraw</a></button>
+        </div>
+        <div class="withdraw" style="border: 1px solid black; width: 250px; margin-bottom: 20px; padding: 5px;">
+            <h3 style="color: purple;">Jumlah Transfer</h3>
+            <h4>Transaksi: <%- dashboardTf %>x</h4>
+            <h4>Nominal Transfer: Rp<%- dashboardTfAmount %></h4>
+            <button><a href="/transfer">Transer</a></button>
+        </div>
+    </div>
+    <button><a href="/logout">Logout</a></button>
+</body>
+</html>

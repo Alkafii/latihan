@@ -1,0 +1,45 @@
+<h1>Transfer</h1>
+<form action="/submitTransfer" method="POST">
+    <div style="margin-bottom: 10px;">
+        <select name="bankName" id="bankName" required style="padding: 2px; width: 173px;">
+            <option value="" disabled <%= !bankName ? 'selected' : '' %>>Select Bank</option>
+            <option value="BJB" <%= bankName === 'BJB' ? 'selected' : '' %>>BJB</option>
+            <option value="BCA" <%= bankName === 'BCA' ? 'selected' : '' %>>BCA</option>
+            <option value="Mandiri" <%= bankName === 'Mandiri' ? 'selected' : '' %>>Mandiri</option>
+            <option value="BRI" <%= bankName === 'BRI' ? 'selected' : '' %>>BRI</option>
+            <option value="BNI" <%= bankName === 'BNI' ? 'selected' : '' %>>BNI</option>
+        </select>
+    </div>
+    <div style="margin-bottom: 10px; display: flex; width: 173px; gap: 5px;">
+        <input type="text" id="accountNum" name="accountNum" placeholder="Account Number" required style="flex: 1; min-width: 0;" value="<%= accountNumber %>">
+        <input type="submit" value="Inquiry" name="submitAction" style="padding: 2px 5px;">
+    </div>
+    <div style="margin-bottom: 10px;">
+        <input type="text" id="accountName" name="accountName" placeholder="Account Name" readonly value="<%= accountName %>" style="width: 167px;">
+    </div>
+    <div style="margin-bottom: 10px;">
+        <input type="text" id="transferAmount" name="transferAmount" placeholder="Insert Amount" style="width: 167px;" value="<%= transferAmount %>">
+    </div>
+    <div style="margin-bottom: 10px;">
+    <select name="transferMethod" id="transferMethod" style="padding: 2px; width: 173px;">
+        <option value="" disabled selected>Transfer Method</option>
+        <option value="BIFAST">BIFAST</option>
+        <option value="Transfer Online">Transfer Online</option>
+    </select>
+</div>
+    <div>
+        <input type="submit" value="Transfer" name="submitAction" style="height: 25px;">
+        <button><a href="/transfer">⭮</a></button>
+    </div>
+</form>
+<h2 style="color: green;">Total Balance: Rp<%- totalAmount %></h2>
+<h3>Histori Deposit</h3>
+<ul>
+    <%- historyTf %>
+</ul>
+<% if (errorMessage) { %>
+    <p style="color: red;"><%= errorMessage %></p>
+<% } %>
+<button><a href="/">Back</a></button>
+<button><a href="/deposit">Deposit</a></button>
+<button><a href="/withdraw">Withdraw</a></button>

@@ -1,0 +1,13 @@
+<h1>Insert Deposite Balance</h1>
+<form action="/submitDeposit" method="POST">
+    <input type="text" id="amount" name="depositAmount" placeholder="Insert Amount" required>
+    <input type="submit" value="Deposit">
+</form>
+<h2 style="color: green;">Total Balance: Rp <%- totalDeposit %></h2>
+<h3>Histori Deposit</h3>
+<ul>
+    <%- historyDepo %>
+</ul>
+<button><a href="/">Back</a></button>
+<button><a href="/withdraw">Withdraw</a></button>
+<button><a href="/transfer">Transer</a></button>

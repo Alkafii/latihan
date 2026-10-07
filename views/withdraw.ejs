@@ -1,0 +1,16 @@
+<h1>Insert Withdraw Balance</h1>
+<form action="/submitWithdraw" method="POST">
+    <input type="text" id="amount" name="withdrawAmount" placeholder="Insert Amount" required>
+    <input type="submit" value="Withdraw">
+</form>
+<h2 style="color: green;">Total Balance: Rp <%- totalwithdraw %></h2>
+<h3>Histori Withdraw</h3>
+<ul>
+    <%- historywithdraw %>
+</ul>
+<% if (errorMessage) { %>
+    <p style="color: red;"><%= errorMessage %></p>
+<% } %>
+<button><a href="/">Back</a></button>
+<button><a href="/deposit">Deposit</a></button>
+<button><a href="/transfer">Transer</a></button>
