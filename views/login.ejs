@@ -1,0 +1,15 @@
+<h1>Login</h1>
+<form action="/submitLogin" method="POST">
+    <input type="hidden" name="currentType" value="<%= type %>">
+    <div>
+        <input type="text" id="username" name="username" placeholder="Username" value="<%= usernameValue %>" style="margin-bottom: 3px;" required>
+    </div>
+    <div>
+        <input type="<%- type %>" id="password" name="password" placeholder="Password" value="<%= passwordValue %>" style="margin-bottom: 3px;" required>
+        <input type="submit" value="👁" id="checkPassword" name="loginAction" style="padding: 2px 5px;">
+    </div>
+     <input type="submit" name="loginAction" value="Login">
+    <% if (errorMessage) { %>
+        <p style="color: red;"><%= errorMessage %></p>
+    <% } %>
+</form>
